@@ -3,7 +3,7 @@ package PialsPackage;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-
+import java.util.HashMap;
 
 
 public class List extends Individual {
@@ -90,6 +90,8 @@ public class List extends Individual {
             return (T) (Array) i.data;
         } else if (i.data instanceof ArrayList) {
             return (T) (ArrayList) i.data;
+        } else if (i.data instanceof HashMap) {
+            return (T) (HashMap) i.data;
         } else
             return null;
     }
@@ -188,6 +190,9 @@ class Individual {
         }
         else if( obj instanceof Array){
             Array arr = (Array) obj;
+            this.data = arr;
+        }else if( obj instanceof HashMap){
+            HashMap  arr = (HashMap) obj;
             this.data = arr;
         }
 
